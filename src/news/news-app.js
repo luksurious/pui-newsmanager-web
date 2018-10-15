@@ -1,4 +1,7 @@
-var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize"]);
+import './services/news-services';
+
+
+var app = angular.module("newsapp", ["ngRoute", "ngResource","ngSanitize", "news.services"]);
 
 // TODO: Code of the routeProvider
 
@@ -10,6 +13,12 @@ var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize"]);
 app.run(['$http', function ($http) {
 	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=XXXXXXXX';
 }]);
+
+app.directive('test', function () {
+	return {
+		template: require('./test.html')
+	};
+});
 
 /**************************************************************************/
 // Code to load the image files 
