@@ -1,6 +1,7 @@
 'use strict';
 
 /* Services */
+var app = angular.module('news.services', []);
 
 // Post login information and returns the apikey of the user sent when the login succedded 
 // The format of the input must be: 
