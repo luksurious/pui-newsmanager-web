@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "server": "webpack-dev-server --history-api-fallback --inline --progress --mode=development",
-    "build": "webpack --config webpack.config.js"
+    "build": "rimraf dist && webpack --config webpack.config.js --mode=production"
   },
   "repository": {
     "type": "git",
