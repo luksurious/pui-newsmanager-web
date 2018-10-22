@@ -26,24 +26,24 @@
     "jquery": "^3.3.1"
   },
   "devDependencies": {
-    "ajv": "*",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "ajv": "^6.5.4",
     "autoprefixer": "^9.2.0",
-    "babel-core": "*",
-    "babel-loader": "^7.0.4",
-    "babel-preset-es2015": "*",
-    "copy-webpack-plugin": "*",
+    "babel-loader": "^8.0.0",
+    "copy-webpack-plugin": "^4.5.3",
     "css-loader": "^1.0.0",
     "file-loader": "^2.0.0",
-    "html-webpack-plugin": "*",
-    "mini-css-extract-plugin": "*",
-    "node-libs-browser": "*",
-    "null-loader": "*",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-libs-browser": "^2.1.0",
+    "null-loader": "^0.1.1",
     "postcss-loader": "^3.0.0",
-    "raw-loader": "*",
-    "rimraf": "*",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.6.2",
     "style-loader": "^0.23.1",
-    "webpack": "*",
-    "webpack-cli": "*",
-    "webpack-dev-server": "*"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
   }
 }
