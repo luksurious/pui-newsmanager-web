@@ -1,9 +1,13 @@
 import './services/services';
 import './image-uploader';
+import config from './config';
 
-var app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "news.services", "imageUploader"]);
+let app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "news.services", "imageUploader"]);
 
-// TODO: Code of the routeProvider
+require('./news-route');
+require('./components/news-list.controller');
+require('./components/news-detail.controller');
+require('./components/news-edit.controller');
 
 // TODO: Replace XXXXXXXX with the APIKEY your group anonymous apikey
 // When the user is logged in, the apikey sent to the server must be updated to the
@@ -11,11 +15,11 @@ var app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "ne
 // $http.defaults.headers.common['Authorization'] = loginres.Authorization + ' apikey=' + loginres.apikey;
 
 app.run(['$http', function ($http) {
-	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=XXXXXXXX';
+	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=' + config.apiKey;
 }]);
 
-app.directive('test', function () {
-	return {
-		template: require('./test.html')
-	};
-});
+// app.directive('test', function () {
+// 	return {
+// 		template: require('./test.html')
+// 	};
+// });

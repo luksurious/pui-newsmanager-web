@@ -1,4 +1,5 @@
 'use strict';
+import config from './../config';
 
 /* Services */
 let app = angular.module('news.services');
@@ -12,7 +13,7 @@ let app = angular.module('news.services');
 //  username: "groman", ...}
 
 app.factory('LoginService', ['$resource', function ($resource) {
-	return $resource('http://sanger.dia.fi.upm.es/pui-rest-news/login', {},
+	return $resource(config.apiEndpoint + '/login', {},
 		{
 			login: {method: 'post'}
 		});
@@ -30,7 +31,7 @@ app.factory('LoginService', ['$resource', function ($resource) {
 //  "thumbnail_media_type":...}
 
 app.factory('NewsListService', ['$resource', function ($resource) {
-	return $resource('http://sanger.dia.fi.upm.es/pui-rest-news/articles', {},
+	return $resource(config.apiEndpoint + '/articles', {},
 		{
 			query: {method: 'get', isArray: true}
 		});
@@ -48,7 +49,7 @@ app.factory('NewsListService', ['$resource', function ($resource) {
 //  "image_media_type":...}
 
 app.factory('NewsDetailsService', ['$resource', function ($resource) {
-	return $resource('http://sanger.dia.fi.upm.es/pui-rest-news/article/:id', { id: '@_id' },
+	return $resource(config.apiEndpoint + '/article/:id', { id: '@_id' },
 		{
 			get: {method: 'get'},
 			delete: {method: 'delete'}, 
