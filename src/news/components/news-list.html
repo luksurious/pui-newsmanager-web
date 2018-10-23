@@ -1,13 +1,10 @@
-<h1>News List</h1>
-
-<ul>
-    <li ng-repeat="item in data">
-        <ul>
-            <li ng-repeat="(key, value) in item" ng-if="key.indexOf('thumbnail') == -1">
-                {{ key }}: {{ value }}
-            </li>
-        </ul>
-        <img src="data:{{ item.thumbnail_media_type }};base64, {{ item.thumbnail_image }}">
-        <a href="/news/{{ item.id }}">See details</a>
-    </li>
-</ul>
+<div class="row">
+    <div ng-repeat="item in data" class="primary-news col-md-6" style="margin-bottom:15px; padding:15px; border: 2px solid #ededed">
+        <img src="data:{{ item.thumbnail_media_type }};base64, {{ item.thumbnail_image }}" width="100%" alt="news-main">
+        <h1>{{ item.title }}</h1>
+        <h3>{{ item.subtitle }}</h3>
+        <p>{{ item.category }}</p>
+        <p>{{ item.abstract }}</p>
+        <a href="/news/{{ item.id }}">Read more...</a>
+    </div>
+</div>
