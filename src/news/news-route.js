@@ -9,6 +9,11 @@ angular.module('news.app')
             $locationProvider.html5Mode(true);
 
             $routeProvider.
+                when('/news/category/:category', {
+                    controller: 'NewsListController',
+                    controllerAs: 'vm',
+                    template: NewsListTemplate
+                }).
                 when('/news/:id', {
                     controller: 'NewsDetailController',
                     controllerAs: 'vm',
