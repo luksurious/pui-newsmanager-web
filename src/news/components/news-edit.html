@@ -3,4 +3,18 @@
  
 <!-- <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />
 <input type="file" ng-file-select="onFileSelect($files);" ng-model="news"></input> -->
+
+// TODO : manage authorization
+
+<label>Title</label>
+<input type="text" value="{{ data.title }}"/>
+<label>Subtitle</label>
+<input type="text" value="{{ data.subtitle }}"/>
+<label>Abstract</label>
+<textarea>{{ data.abstract }}</textarea>
+<label>Body</label>
+<textarea>{{ data.body }}</textarea>
+<label>Title</label>
+<input type="text" value="{{ data.title }}"/>
+
 {{ data }}
