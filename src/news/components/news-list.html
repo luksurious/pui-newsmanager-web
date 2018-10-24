@@ -1,6 +1,6 @@
 <div class="row">
-    <div ng-repeat="item in data | filter: newsFilter as filteredNews" class="primary-news col-md-6" style="margin-bottom:15px; padding:15px; border: 2px solid #ededed">
-        <img ng-src="{{ item.thumbnail_image | base64Src: item.thumbnail_media_type }}" width="100%" alt="news-main">
+    <div ng-repeat="item in data | filter: newsFilter as filteredNews" class="primary-news col-lg-6" style="margin-bottom:15px; padding:15px;">
+        <img ng-src="{{ item.thumbnail_image | base64Src: item.thumbnail_media_type }}" width="100%" alt="{{ item.title }}">
         <h1>{{ item.title }}</h1>
         <h3>{{ item.subtitle }}</h3>
         <p>{{ item.category }}</p>
@@ -8,8 +8,10 @@
         <a ng-href="/article/{{ item.id }}">Read more...</a>
     </div>
 
-    <div ng-show="filteredNews.length == 0">
+    <div ng-show="filteredNews.length == 0 && loaded">
         <p>There are no news available for this category</p>
     </div>
+
+    <div ng-show="!loaded">Loading...</div>
 </div>
 

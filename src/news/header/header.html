@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">The News</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                
+                <form class="form-inline ml-auto">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+                <button class="btn btn-outline-light my-2 my-sm-0 mr-sm-2">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-md navbar-default navbar-fixed-top navbar-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCategoryFilter" aria-controls="navCategoryFilter"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav navbar-collapse collapse" id="navCategoryFilter">
+                <li news-navlink class="nav-item" route="'/'">All news</news-navlink>
+                <li news-navlink class="nav-item" route="'/category/national'">National</news-navlink>
+                <li news-navlink class="nav-item" route="'/category/economy'">Economy</news-navlink>
+                <li news-navlink class="nav-item" route="'/category/sports'">Sports</news-navlink>
+                <li news-navlink class="nav-item" route="'/category/technology'">Technology</news-navlink>
+            </ul>
+        </div>
+    </nav>
