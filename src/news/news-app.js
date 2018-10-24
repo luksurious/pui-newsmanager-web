@@ -1,8 +1,8 @@
 import './services/services';
-import './image-uploader';
+import './filters/image-base64-formatter';
 import config from './config';
 
-let app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "news.services", "imageUploader"]);
+let app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "news.services", 'imageBase64Formatter']);
 
 require('./news-route');
 require('./components/news-list.controller');
@@ -17,9 +17,3 @@ require('./components/news-edit.controller');
 app.run(['$http', function ($http) {
 	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=' + config.apiKey;
 }]);
-
-// app.directive('test', function () {
-// 	return {
-// 		template: require('./test.html')
-// 	};
-// });

@@ -1,13 +1,15 @@
 angular.module('news.app')
     .controller('NewsListController', function ($scope, $routeParams, NewsListService) {
-        $scope.data = {};
+        $scope.data = [];
         
-        $scope.categoryFilter = $routeParams.category || "";
+        $scope.newsFilter = {};
+        if ($routeParams.category) {
+            $scope.newsFilter.category = $routeParams.category;
+        }
 
         NewsListService.query().$promise.then(data => {
             $scope.data = data;
-        })
-        .catch(e => {
+        }).catch(e => {
             console.log(e);
         });
     });

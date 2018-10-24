@@ -1,4 +1,4 @@
-let app = angular.module("imageUploader", []);
+let app = angular.module('imageUploader', []);
 
 /**************************************************************************/
 // Code to load the image files 

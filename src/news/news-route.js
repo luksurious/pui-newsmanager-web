@@ -9,26 +9,26 @@ angular.module('news.app')
             $locationProvider.html5Mode(true);
 
             $routeProvider.
-                when('/news/category/:category', {
-                    controller: 'NewsListController',
-                    controllerAs: 'vm',
-                    template: NewsListTemplate
-                }).
-                when('/news/:id', {
-                    controller: 'NewsDetailController',
-                    controllerAs: 'vm',
-                    template: NewsDetailTemplate
-                }).
-                when('/news/:id/edit', {
-                    controller: 'NewsEditController',
-                    controllerAs: 'vm',
-                    template: NewsEditTemplate
-                }).
                 when('/', {
                     controller: 'NewsListController',
                     controllerAs: 'vm',
                     template: NewsListTemplate
-                })
-                .otherwise('/');
+                }).
+                when('/category/:category', {
+                    controller: 'NewsListController',
+                    controllerAs: 'vm',
+                    template: NewsListTemplate
+                }).
+                when('/article/:id', {
+                    controller: 'NewsDetailController',
+                    controllerAs: 'vm',
+                    template: NewsDetailTemplate
+                }).
+                when('/article/:id/edit', {
+                    controller: 'NewsEditController',
+                    controllerAs: 'vm',
+                    template: NewsEditTemplate
+                }).
+                otherwise('/');
         }
     ]);

@@ -2,5 +2,5 @@
 <h3>{{data.subtitle}} </h3>
 <p>{{data.category}} </p>
 <p>{{data.update_date}} </p>
-<img src="data:{{ data.image_media_type }};base64, {{ data.image_data }}">
+<img ng-src="{{ data.image_data | base64Src: data.image_media_type }}">
 <p>{{data.abstract}}</p>

@@ -10,7 +10,7 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-resource.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-sanitize.js"></script>
@@ -19,55 +19,58 @@
 </head>
 
 <body ng-app="news.app">
-	
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
 		<div class="container">
-		  <a class="navbar-brand" href="/">The News</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarResponsive">
-			<form class="form-inline ml-auto">
-			  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			</form>
-			<button class="btn btn-outline-light my-2 my-sm-0 mr-sm-2" onclick="#">Login</button>
-		  </div>
+			<a class="navbar-brand" href="/">The News</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+			 aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<form class="form-inline ml-auto">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				</form>
+				<button class="btn btn-outline-light my-2 my-sm-0 mr-sm-2" onclick="#">Login</button>
+			</div>
 		</div>
-	  </nav>
-  
-	  <nav class="navbar navbar-expand-lg navbar-default navbar-fixed-top">
+	</nav>
+
+	<nav class="navbar navbar-expand-lg navbar-default navbar-fixed-top">
 		<div class="container">
-		  <ul class="navbar-nav">
-			<li class="nav-item active">
-			  <a class="nav-link" href="/">All news
-				<span class="sr-only">(current)</span>
-			  </a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="/news/category/national">National</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="/news/category/economy">Economy</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="/news/category/sports">Sports</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="/news/category/technology">Technology</a>
-			</li>
-		  </ul>
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="/">All news
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/category/national">National</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/category/economy">Economy</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/category/sports">Sports</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/category/technology">Technology</a>
+				</li>
+			</ul>
 		</div>
-	  </nav>
+	</nav>
 
 	<!-- TODO: Add a header  here -->
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-9" ng-view>
+			<div class="col-sm-9" ng-view ng-cloak>
 			</div>
 			<div class="col-sm-3 blog-sidebar" style="border: 2px solid #ededed; margin-bottom: 15px; padding:20px">
 				<div class="sidebar-module sidebar-module-inset">
-				<a class="twitter-timeline" href="https://twitter.com/EIT_Digital?ref_src=twsrc%5Etfw">Tweets by EIT_Digital</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+					<a class="twitter-timeline" data-height="1000" href="https://twitter.com/EIT_Digital?ref_src=twsrc%5Etfw">Tweets
+						by EIT_Digital</a>
+					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 				</div>
 			</div>
 		</div><!-- /.row -->
@@ -76,10 +79,10 @@
 	<!-- TODO: Add a footer here -->
 	<footer class="py-3 bg-primary">
 		<div class="container">
-		  <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+			<p class="m-0 text-center text-white">Copyright &copy; LVL 2018</p>
 		</div>
 		<!-- /.container -->
-	  </footer>
+	</footer>
 </body>
 
 
