@@ -19,6 +19,10 @@ angular.module('news.app')
                     controllerAs: 'vm',
                     template: NewsListTemplate
                 }).
+                when('/search/:term', {
+                    controller: 'NewsListController',
+                    template: NewsListTemplate
+                }).
                 when('/article/:id', {
                     controller: 'NewsDetailController',
                     controllerAs: 'vm',

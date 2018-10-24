@@ -8,6 +8,9 @@ angular.module('news.app')
         if ($routeParams.category) {
             $scope.newsFilter.category = $routeParams.category;
         }
+        if ($routeParams.term) {
+            $scope.newsFilter = $routeParams.term;
+        }
 
         NewsListService.query().$promise.then(data => {
             $scope.data = data;
