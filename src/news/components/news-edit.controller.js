@@ -1,5 +1,5 @@
 angular.module('news.app')
-    .controller('NewsEditController', function ($scope, NewsDetailsService, ngToast, $routeParams) {
+    .controller('NewsEditController', function ($scope, NewsDetailsService, ngToast) {
         $scope.data = {};
 
         $scope.newsId = $routeParams.id;
