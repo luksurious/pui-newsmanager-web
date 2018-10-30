@@ -1,25 +1,24 @@
 
 <!-- Code to browse the image file and binds the image to the scope variables "news.image_media_type" and "news.image_data" -->
- 
+
 <!-- <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />
 <input type="file" ng-file-select="onFileSelect($files);" ng-model="news"></input> -->
 
-
+<a class="btn" href="/article/{{ data.id }}">< back</a>
 <h1>Edit #{{ data.id }}</h1>
 <div class="form-group">
-    <label for="exampleInputEmail1">Title</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" placeholder="Title" ng-model="data.title" required>
 </div>
-<label>Title</label>
-<input type="text" value="{{ data.title }}"/>
-<label>Subtitle</label>
-<input type="text" value="{{ data.subtitle }}"/>
-<label>Abstract</label>
-<textarea>{{ data.abstract }}</textarea>
-<label>Body</label>
-<textarea>{{ data.body }}</textarea>
-<label>Title</label>
-<input type="text" value="{{ data.title }}"/>
+<div class="form-group">
+    <label for="subtitle">Subtitle</label>
+    <input type="text" class="form-control" id="subtitle" placeholder="Subtitle" ng-model="data.subtitle" required>
+</div>
+<div class="form-group">
+    <label for="abstract">Abstract</label>
+    <textarea name="name" rows="4" class="form-control" id="abstract" placeholder="Abstract" ng-model="data.abstract"></textarea>
+</div>
+<summernote height="400" ng-model="data.body"></summernote>
+<toast></toast>
 
-{{ data }}
+<button class="btn btn-primary float-right mt-3" ng-click="save()">Save</button>

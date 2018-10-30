@@ -4,4 +4,5 @@
 <p>{{data.update_date}} </p>
 <img ng-src="{{ data.image_data | base64Src: data.image_media_type }}">
 <p>{{data.abstract}}</p>
-<p>{{data.body}}</p>
+<!-- TODO: Check if the user is logged in -->
+<a class="btn btn-primary float-right" href="/article/{{ data.id }}/edit">Edit</a>
