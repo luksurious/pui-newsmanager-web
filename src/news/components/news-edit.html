@@ -4,8 +4,13 @@
 <!-- <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />
 <input type="file" ng-file-select="onFileSelect($files);" ng-model="news"></input> -->
 
-// TODO : manage authorization
 
+<h1>Edit #{{ data.id }}</h1>
+<div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+</div>
 <label>Title</label>
 <input type="text" value="{{ data.title }}"/>
 <label>Subtitle</label>

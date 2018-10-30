@@ -11,3 +11,5 @@ angular.module('news.app')
             console.log(e);
         });
     });
+
+// TODO: manage authentification
