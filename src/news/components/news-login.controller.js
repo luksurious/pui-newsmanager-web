@@ -1,8 +1,11 @@
 import config from './../config';
 
-function NewsLoginController($scope, $rootScope, $http, LoginService) {
-    $scope.username = "";
-    $scope.password = "";
+function NewsLoginController($scope, $rootScope, LoginService) {
+
+    this.$onInit = function () {
+        $scope.hasLoginError = false;
+        reset();
+    };
 
     function reset() {
         $scope.username = "";
@@ -18,6 +21,7 @@ function NewsLoginController($scope, $rootScope, $http, LoginService) {
             reset();
         }).catch(e => {
             console.log(e);
+            $scope.hasLoginError = true;
         });
     };
 
