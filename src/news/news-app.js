@@ -7,7 +7,7 @@ import '../../node_modules/angular-sanitize/angular-sanitize.min.js';
 import '../../node_modules/ng-toast/dist/ngToast.min.js';
 import './app.css';
 
-let app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "news.services", 'imageBase64Formatter', 'summernote', 'ngToast']);
+let app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "ngMessages", "news.services", 'imageBase64Formatter', 'summernote', 'ngToast']);
 
 require('./news-route');
 require('./header/header.directive');

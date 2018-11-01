@@ -1,6 +1,11 @@
+import config from './../config';
+
 function NewsLoginController($scope, $rootScope, LoginService) {
-    $scope.username = "";
-    $scope.password = "";
+
+    this.$onInit = function () {
+        $scope.hasLoginError = false;
+        reset();
+    };
 
     function reset() {
         $scope.username = "";
@@ -8,22 +13,24 @@ function NewsLoginController($scope, $rootScope, LoginService) {
     }
 
     $scope.login = function () {
-
         LoginService.login({ passwd: $scope.password, username: $scope.username }).$promise.then(data => {
             $rootScope.loggedInUser = data;
+            $http.defaults.headers.common['Authorization'] = data.Authorization + ' apikey=' + data.apikey;
+
             $('#loginModal').modal('hide');
             reset();
         }).catch(e => {
             console.log(e);
+            $scope.hasLoginError = true;
         });
+    };
 
-    }
+    $scope.logout = function () {
+        $rootScope.loggedInUser = null;
+        $http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=' + config.apiKey;
+        
+        $('#logoutModal').modal('hide');
+    };
 }
-
-// {passwd: $scope.password, ​username: $scope.username}
-
-// {Authorization: "PUIRESTAUTH", 
-//  apikey: "APIKEYOFTHEUSER", 
-//  username: "groman", ...}
 
 export default NewsLoginController;

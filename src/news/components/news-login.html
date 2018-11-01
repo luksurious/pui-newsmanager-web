@@ -8,25 +8,49 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form ng-submit="login()">
+                <form name="loginForm" ng-submit="login()">
+                    <div class="errorsLogin" ng-show="hasLoginError">Login failed</div>
                     <div class="form-group row">
                         <label for="usernameInput" class="col-sm-3 col-form-label">Username</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" ng-model="username" id="usernameInput"
-                                placeholder="Username">
+                            <input type="text" class="form-control" name="username" ng-model="username" id="usernameInput"
+                                placeholder="Username" required>
+                            <div ng-messages="loginForm.username.$error" ng-show="loginForm.username.$touched">
+                                <div class="errorsLogin" ng-message="required">Username is required</div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="passwordInput" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-7">
-                            <input type="password" class="form-control" ng-model="password" id="passwordInput"
-                                placeholder="Password">
+                            <input type="password" class="form-control" name="password" ng-model="password" id="passwordInput"
+                                placeholder="Password" required>
+                            <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched">
+                                <div class="errorsLogin" ng-message="required">Password is required</div>
+                            </div>
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" ng-click="login()" class="btn btn-primary">Login</button>
+                        <button type="submit" ng-click="login()" class="btn btn-primary" ng-disabled="loginForm.$invalid">Login</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalTitle">Logout</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to logout?</p>
+                <button type="button" ng-click="logout()" class="btn btn-primary">Yes, logout</button>
             </div>
         </div>
     </div>

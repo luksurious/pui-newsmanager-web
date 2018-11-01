@@ -12,7 +12,12 @@
             </form>
             <button class="btn btn-outline-light my-2 my-sm-0 mr-sm-2" id="login-button" data-toggle="modal"
                 data-target="#loginModal" ng-if="!loggedInUser">Login</button>
-            <button class="btn btn-outline-light my-2 my-sm-0 mr-sm-2" ng-if="loggedInUser">{{ loggedInUser.username }}</button>
+            <div class="btn-group" role="group" ng-if="loggedInUser">
+                <button id="btnGroupLogout" class="btn btn-outline-light dropdown-toggle my-2 my-sm-0 mr-sm-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ loggedInUser.username }}</button>
+                <div class="dropdown-menu" aria-labelledby="btnGroupLogout">
+                    <a class="dropdown-item" href="javascript:void();" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
