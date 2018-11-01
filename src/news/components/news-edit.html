@@ -41,7 +41,7 @@
             <div ng-messages="editForm.body.$error">
                 <div class="errorsLogin" ng-message="required">The body of the news is required</div>
             </div>
-            <button class="btn btn-primary float-right mt-3" ng-click="save()" ng-disabled="editForm.$invalid">Save</button>
+            <button class="btn btn-primary float-right mt-3 saveButtonForm" ng-click="save()" ng-disabled="editForm.$invalid">Save</button>
         </form>
 
         <toast></toast>
