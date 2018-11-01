@@ -14,6 +14,7 @@ require('./header/header.directive');
 require('./components/news-list.controller');
 require('./components/news-detail.controller');
 require('./components/news-edit.controller');
+require('./components/news-creation.controller');
 require('./components/news-login.directive');
 
 // TODO: Replace XXXXXXXX with the APIKEY your group anonymous apikey

@@ -23,6 +23,6 @@ angular.module('news.app')
                 }
             )
         }
-    });
+});
 
 // TODO: manage authentification

@@ -1,6 +1,7 @@
 import NewsListTemplate from './components/news-list.html';
 import NewsDetailTemplate from './components/news-detail.html';
 import NewsEditTemplate from './components/news-edit.html';
+import NewsCreateTemplate from './components/news-creation.html';
 
 angular.module('news.app')
     .config(['$locationProvider', '$routeProvider',
@@ -22,6 +23,11 @@ angular.module('news.app')
                 when('/search/:term', {
                     controller: 'NewsListController',
                     template: NewsListTemplate
+                }).
+                when('/create', {
+                    controller: 'NewsCreateController',
+                    controllerAs: 'vm',
+                    template: NewsCreateTemplate
                 }).
                 when('/article/:id', {
                     controller: 'NewsDetailController',
