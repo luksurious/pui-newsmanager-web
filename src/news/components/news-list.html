@@ -12,9 +12,9 @@
         <p>{{ item.category }}</p>
         <p>{{ item.abstract }}</p>
         <a ng-href="/article/{{ item.id }}">Read more...</a>
-        <button class="btn btn-danger my-2 my-sm-0 mr-sm-2 float-right" ng-if="loggedInUser">Delete</button>
-        <a class="btn btn-secondary my-2 my-sm-0 mr-sm-2 float-right" ng-if="loggedInUser" ng-href="/article/{{ item.id }}/edit">Edit</a>
 
+        <button class="btn btn-danger my-2 my-sm-0 mr-sm-2 float-right" ng-click="deleteNews(item)" ng-if="loggedInUser">Delete</button>
+        <a class="btn btn-secondary my-2 my-sm-0 mr-sm-2 float-right" ng-if="loggedInUser" ng-href="/article/{{ item.id }}/edit">Edit</a>
     </div>
 
     <div ng-if="filteredNews.length == 0 && isLoaded">
