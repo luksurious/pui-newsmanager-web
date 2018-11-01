@@ -42,6 +42,7 @@
     <div class="form-group">
         <label for="body">Body</label>
         <summernote height="400" ng-model="data.body" editable="bodyEditable" on-change="onBodyChanged()"></summernote>
+        <!-- this hidden input is added as a dummy for the form validation because the WYSIWYG editor does not fully integrate with AngularJS -->
         <input type="hidden" ng-model="data.body" name="body" required>
         <div ng-messages="createForm.body.$error" ng-show="createForm.body.$touched">
             <div class="errorsLogin" ng-message="required">The body of the news is required</div>

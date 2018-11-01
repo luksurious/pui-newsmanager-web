@@ -1,6 +1,7 @@
 <div ng-show="isLoaded">
-    <h1>Edit #{{ data.id }}</h1>
     <a class="btn btn-secondary" href="/">&lt; back</a>
+
+    <h1>Edit #{{ data.id }}</h1>
     <form name="editForm" ng-submit="save()">
         <div class="form-group">
             <label for="title">Title</label>
@@ -13,14 +14,14 @@
         <div class="form-group">
             <label for="category">Category</label>
             <select id="inputState" name="category" class="form-control" ng-model="data.category" required>
-            <option value="National">National</option>
-            <option value="Technology">Technology</option>
-            <option value="Economy">Economy</option>
-            <option value="Sports">Sports</option>
+                <option value="National">National</option>
+                <option value="Technology">Technology</option>
+                <option value="Economy">Economy</option>
+                <option value="Sports">Sports</option>
             </select>
         </div>
         <div ng-controller="UploadController" class="my-3">
-            <img style="width: 300px;" ng-show="data.image_data" ng-src="{{ data.image_data | base64Src: data.image_media_type }}" />
+            <img style="width: 300px;" ng-show="data.image_data && data.image_data != 'null'" ng-src="{{ data.image_data | base64Src: data.image_media_type }}" />
             <input type="file" ng-file-select="onFileSelect($files);" ng-model="data">
         </div>
         <div class="form-group">

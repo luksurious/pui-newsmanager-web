@@ -1,7 +1,13 @@
 angular.module('news.app')
-    .controller('NewsEditController', function ($scope, NewsDetailsService, ngToast, $routeParams) {
+    .controller('NewsEditController', function ($scope, $rootScope, NewsDetailsService, ngToast, $routeParams, $location) {
         $scope.data = {};
         $scope.isLoaded = false;
+
+        if (!$rootScope.loggedInUser) {
+            ngToast.warning('You are not allowed to access this page');
+            $location.path('/');
+            return;
+        }
 
         $scope.newsId = $routeParams.id;
 
@@ -31,5 +37,3 @@ angular.module('news.app')
             $scope.editForm.body.$setTouched();
         };
     });
-
-// TODO: manage authentification

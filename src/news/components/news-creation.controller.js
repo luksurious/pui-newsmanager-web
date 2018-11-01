@@ -1,7 +1,12 @@
 angular.module('news.app')
-    .controller('NewsCreateController', function ($scope, NewsDetailsService, ngToast, $routeParams) {
+    .controller('NewsCreateController', function ($scope, $rootScope, NewsDetailsService, ngToast, $location) {
         $scope.data = {};
-        $scope.fakeBody = '';
+
+        if (!$rootScope.loggedInUser) {
+            ngToast.warning('You are not allowed to access this page');
+            $location.path('/');
+            return;
+        }
 
         $scope.create = function () {
             NewsDetailsService.save($scope.data).$promise.then(
@@ -16,6 +21,7 @@ angular.module('news.app')
                 }
             )
         };
+
         $scope.onBodyChanged = function () {
             $scope.createForm.body.$setTouched();
         };
