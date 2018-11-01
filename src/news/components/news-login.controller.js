@@ -1,6 +1,6 @@
 import config from './../config';
 
-function NewsLoginController($scope, $rootScope, LoginService) {
+function NewsLoginController($scope, $rootScope, $http, LoginService) {
 
     this.$onInit = function () {
         $scope.hasLoginError = false;
