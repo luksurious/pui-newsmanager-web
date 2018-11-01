@@ -1,11 +1,13 @@
 angular.module('news.app')
     .controller('NewsEditController', function ($scope, NewsDetailsService, ngToast, $routeParams) {
         $scope.data = {};
+        $scope.loaded = false;
 
         $scope.newsId = $routeParams.id;
 
         NewsDetailsService.get({ id: $scope.newsId }).$promise.then(data => {
             $scope.data = data;
+            $scope.loaded = true;
         })
         .catch(e => {
             ngToast.danger('There was an error loading the news item');
@@ -23,7 +25,7 @@ angular.module('news.app')
                     ngToast.danger('It didn\'t work, come back later');
                 }
             )
-        }
+        };
 });
 
 // TODO: manage authentification
