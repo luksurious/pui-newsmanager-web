@@ -1,5 +1,5 @@
 angular.module('news.app')
-    .controller('NewsListController', function ($scope, $routeParams, NewsListService) {
+    .controller('NewsListController', function ($scope, $routeParams, NewsListService, NewsDetailsService) {
         $scope.data = [];
 
         $scope.isLoaded = false;
@@ -22,4 +22,16 @@ angular.module('news.app')
         }).catch(e => {
             console.log(e);
         });
+
+        $scope.deleteNews = function (news) {
+            if (!confirm(`Are you sure you want to delete the news item ${news.title}?`)) {
+                return;
+            }
+            NewsDetailsService.delete({id: news.id}).$promise.then(function (data) {
+                console.log('Successfully deleted news #' + news.id);
+            })
+            .catch(function (err) {
+                console.error(err);
+            });
+        };
     });
