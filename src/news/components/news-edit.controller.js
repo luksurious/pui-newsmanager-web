@@ -16,6 +16,11 @@ angular.module('news.app')
                 function(){
                     ngToast.create('Saved !');
                 }
+            ).catch(
+                function(e){
+                    console.log(e);
+                    ngToast.create('It didn\'t work, come back later');
+                }
             )
         }
     });

@@ -2,7 +2,7 @@ import './services/services';
 import './filters/image-base64-formatter';
 import config from './config';
 import summernote from '../../node_modules/angular-summernote/src/angular-summernote';
-//import '../../node_modules/ng-toast/dist/ngToast.min.css';
+import '../../node_modules/ng-toast/dist/ngToast.min.css';
 import '../../node_modules/angular-sanitize/angular-sanitize.min.js';
 import '../../node_modules/ng-toast/dist/ngToast.min.js';
 import './app.css';
