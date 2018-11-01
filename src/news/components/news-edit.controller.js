@@ -1,13 +1,13 @@
 angular.module('news.app')
     .controller('NewsEditController', function ($scope, NewsDetailsService, ngToast, $routeParams) {
         $scope.data = {};
-        $scope.loaded = false;
+        $scope.isLoaded = false;
 
         $scope.newsId = $routeParams.id;
 
         NewsDetailsService.get({ id: $scope.newsId }).$promise.then(data => {
             $scope.data = data;
-            $scope.loaded = true;
+            $scope.isLoaded = true;
         })
         .catch(e => {
             ngToast.danger('There was an error loading the news item');
@@ -26,6 +26,10 @@ angular.module('news.app')
                 }
             )
         };
-});
+
+        $scope.onBodyChanged = function () {
+            $scope.editForm.body.$setTouched();
+        };
+    });
 
 // TODO: manage authentification

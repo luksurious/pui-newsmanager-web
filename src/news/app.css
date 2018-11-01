@@ -26,3 +26,7 @@ body {
 .sidebar-container {
     padding: 0;
 }
+
+footer {
+    margin-top: 20px;
+}

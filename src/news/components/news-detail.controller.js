@@ -1,7 +1,7 @@
 angular.module('news.app')
     .controller('NewsDetailController', function ($scope, $routeParams, ngToast, NewsDetailsService, NewsUserResolver) {
         $scope.data = {};
-        $scope.loaded = false;
+        $scope.isLoaded = false;
 
         $scope.newsId = $routeParams.id;
         
@@ -10,7 +10,7 @@ angular.module('news.app')
             data.update_date = new Date(data.update_date);
             
             $scope.data = data;
-            $scope.loaded = true;
+            $scope.isLoaded = true;
         })
         .catch(e => {
             ngToast.danger('There was an error loading the news item');
