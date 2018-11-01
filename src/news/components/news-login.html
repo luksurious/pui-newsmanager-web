@@ -8,23 +8,30 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form ng-submit="login()">
+                <form name="loginForm" ng-submit="login()">
+                    <span style="color:red" ng-show="hasLoginError">Login failed</span>
                     <div class="form-group row">
                         <label for="usernameInput" class="col-sm-3 col-form-label">Username</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" ng-model="username" id="usernameInput"
-                                placeholder="Username">
+                            <input type="text" class="form-control" name="username" ng-model="username" id="usernameInput"
+                                placeholder="Username" required>
+                            <span ng-messages="loginForm.username.$error" ng-show="loginForm.username.$touched">
+                                <span style="color:red" ng-message="required">Username is required</span>
+                            </span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="passwordInput" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-7">
-                            <input type="password" class="form-control" ng-model="password" id="passwordInput"
-                                placeholder="Password">
+                            <input type="password" class="form-control" name="password" ng-model="password" id="passwordInput"
+                                placeholder="Password" required>
+                            <span ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched">
+                                <span style="color:red" ng-message="required">Password is required</span>
+                            </span>
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" ng-click="login()" class="btn btn-primary">Login</button>
+                        <button type="submit" ng-click="login()" class="btn btn-primary" ng-disabled="loginForm.$invalid">Login</button>
                     </div>
                 </form>
             </div>

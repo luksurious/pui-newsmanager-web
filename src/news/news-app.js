@@ -2,7 +2,7 @@ import './services/services';
 import './filters/image-base64-formatter';
 import config from './config';
 
-let app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "news.services", 'imageBase64Formatter']);
+let app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "ngMessages", "news.services", 'imageBase64Formatter']);
 
 require('./news-route');
 require('./header/header.directive');

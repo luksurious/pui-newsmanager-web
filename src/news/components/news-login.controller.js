@@ -1,6 +1,9 @@
 function NewsLoginController($scope, $rootScope, LoginService) {
-    $scope.username = "";
-    $scope.password = "";
+
+    this.$onInit = function () {
+        $scope.hasLoginError = false;
+        reset();
+    };
 
     function reset() {
         $scope.username = "";
@@ -15,6 +18,7 @@ function NewsLoginController($scope, $rootScope, LoginService) {
             reset();
         }).catch(e => {
             console.log(e);
+            $scope.hasLoginError = true;
         });
 
     }
