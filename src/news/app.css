@@ -11,10 +11,18 @@ body {
     position: fixed;
 }
 
-.errorsLogin{
+.errorsLogin {
     color: red;
 }
 
-.saveButtonForm{
+.saveButtonForm {
     margin-bottom: 15px;
+}
+
+.sidebar-module {
+    border: 2px solid #ededed;
+    padding: 15px;
+}
+.sidebar-container {
+    padding: 0;
 }
