@@ -1,5 +1,6 @@
-<a class="btn" ng-href="/article/{{ data.id }}">&lt; back</a>
-<div ng-show="loaded">
+<div ng-show="isLoaded">
+    <a class="btn btn-secondary" href="/">&lt; back</a>
+
     <h1>Edit #{{ data.id }}</h1>
     <form name="editForm" ng-submit="save()">
         <div class="form-group">
@@ -13,22 +14,22 @@
         <div class="form-group">
             <label for="category">Category</label>
             <select id="inputState" name="category" class="form-control" ng-model="data.category" required>
-            <option value="National">National</option>
-            <option value="Technology">Technology</option>
-            <option value="Economy">Economy</option>
-            <option value="Sports">Sports</option>
+                <option value="National">National</option>
+                <option value="Technology">Technology</option>
+                <option value="Economy">Economy</option>
+                <option value="Sports">Sports</option>
             </select>
         </div>
         <div ng-controller="UploadController" class="my-3">
-            <img style="width: 300px;" ng-show="data.image_data" ng-src="{{ data.image_data | base64Src: data.image_media_type }}" />
+            <img style="width: 300px;" ng-show="data.image_data && data.image_data != 'null'" ng-src="{{ data.image_data | base64Src: data.image_media_type }}" />
             <input type="file" ng-file-select="onFileSelect($files);" ng-model="data">
         </div>
         <div class="form-group">
-            <label for="abstract">Abstract</label>
-            <textarea name="abstract" rows="4" class="form-control" id="abstract" placeholder="Abstract" ng-model="data.abstract"
-                required></textarea>
-            <div ng-messages="editForm.abstract.$error" ng-show="editForm.abstract.$touched">
-                <div class="errorsLogin" ng-message="required">Abstract is required</div>
+            <label for="subtitle">Subtitle</label>
+            <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Subtitle" ng-model="data.subtitle"
+                required>
+            <div ng-messages="editForm.subtitle.$error" ng-show="editForm.subtitle.$touched">
+                <div class="errorsLogin" ng-message="required">Subtitle is required</div>
             </div>
         </div>
         <div class="form-group">
@@ -41,11 +42,13 @@
         </div>
         <div class="form-group">
             <label for="body">Body</label>
-            <summernote height="400" name="body" ng-model="data.body" required></summernote>
-            <div ng-messages="editForm.body.$error">
+            <summernote height="400" ng-model="data.body" editable="bodyEditable" on-change="onBodyChanged()"></summernote>
+            <input type="hidden" ng-model="data.body" name="body" required>
+            <div ng-messages="editForm.body.$error" ng-show="editForm.body.$touched">
                 <div class="errorsLogin" ng-message="required">The body of the news is required</div>
             </div>
         </div>
         <button class="btn btn-primary float-right mt-3 saveButtonForm" ng-disabled="editForm.$invalid">Save</button>
     </form>
 </div>
+<div ng-if="!isLoaded">Loading...</div>

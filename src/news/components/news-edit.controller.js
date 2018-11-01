@@ -1,13 +1,19 @@
 angular.module('news.app')
-    .controller('NewsEditController', function ($scope, NewsDetailsService, ngToast, $routeParams) {
+    .controller('NewsEditController', function ($scope, $rootScope, NewsDetailsService, ngToast, $routeParams, $location) {
         $scope.data = {};
-        $scope.loaded = false;
+        $scope.isLoaded = false;
+
+        if (!$rootScope.loggedInUser) {
+            ngToast.warning('You are not allowed to access this page');
+            $location.path('/');
+            return;
+        }
 
         $scope.newsId = $routeParams.id;
 
         NewsDetailsService.get({ id: $scope.newsId }).$promise.then(data => {
             $scope.data = data;
-            $scope.loaded = true;
+            $scope.isLoaded = true;
         })
         .catch(e => {
             ngToast.danger('There was an error loading the news item');
@@ -26,6 +32,8 @@ angular.module('news.app')
                 }
             )
         };
-});
 
-// TODO: manage authentification
+        $scope.onBodyChanged = function () {
+            $scope.editForm.body.$setTouched();
+        };
+    });
