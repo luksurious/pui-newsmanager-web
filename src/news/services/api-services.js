@@ -4,12 +4,12 @@ import config from './../config';
 /* Services */
 let app = angular.module('news.services');
 
-// Post login information and returns the apikey of the user sent when the login succedded 
-// The format of the input must be: 
+// Post login information and returns the apikey of the user sent when the login succedded
+// The format of the input must be:
 // {passwd: "password", ​username: "user"}
-// The expected output when the request succedded contains (among other info): 
-// {Authorization: "PUIRESTAUTH", 
-//  apikey: "APIKEYOFTHEUSER", 
+// The expected output when the request succedded contains (among other info):
+// {Authorization: "PUIRESTAUTH",
+//  apikey: "APIKEYOFTHEUSER",
 //  username: "groman", ...}
 
 app.factory('LoginService', ['$resource', function ($resource) {
@@ -52,10 +52,7 @@ app.factory('NewsDetailsService', ['$resource', function ($resource) {
 	return $resource(config.apiEndpoint + '/article/:id', { id: '@_id' },
 		{
 			get: {method: 'get'},
-			delete: {method: 'delete'}, 
+			delete: {method: 'delete'},
 			save: {method: 'post'}
 		});
 }]);
-
-
-

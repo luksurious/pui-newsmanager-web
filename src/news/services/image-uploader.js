@@ -1,7 +1,7 @@
 let app = angular.module('imageUploader', []);
 
 /**************************************************************************/
-// Code to load the image files 
+// Code to load the image files
 app.controller('UploadController', function ($scope, fileReader) {
 	$scope.imageSrc = "";
 
@@ -22,7 +22,7 @@ app.directive("ngFileSelect", function (fileReader, $timeout) {
 						$timeout(function () {
 							$scope.ngModel.image_media_type = result.substring(5, result.indexOf(";base64"));
 							$scope.ngModel.image_data = result.substring(result.indexOf(";base64,") + 8, result.length);
-							
+
 							//$scope.ngModel. = result;
 						});
 					});
@@ -83,5 +83,3 @@ app.factory("fileReader", function ($q, $log) {
 		readAsDataUrl: readAsDataURL
 	};
 });
-
-

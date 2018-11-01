@@ -1,9 +1,13 @@
 import './services/services';
 import './filters/image-base64-formatter';
 import config from './config';
+import summernote from '../../node_modules/angular-summernote/src/angular-summernote';
+import '../../node_modules/ng-toast/dist/ngToast.min.css';
+import '../../node_modules/angular-sanitize/angular-sanitize.min.js';
+import '../../node_modules/ng-toast/dist/ngToast.min.js';
 import './app.css';
 
-let app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "ngMessages", "news.services", 'imageBase64Formatter']);
+let app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "ngMessages", "news.services", 'imageBase64Formatter', 'summernote', 'ngToast']);
 
 require('./news-route');
 require('./header/header.directive');

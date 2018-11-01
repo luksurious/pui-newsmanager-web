@@ -4,6 +4,13 @@ body {
     margin-top: 60px;
 }
 
+
+.ng-toast__message {
+  right: 20px;
+  position: fixed;
+}
+
 .errorsLogin{
     color: red;
 }
+
