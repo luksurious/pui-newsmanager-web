@@ -11,12 +11,15 @@
                     <div class="errorsLogin" ng-message="required">Title is required</div>
                 </div>
             </div>
-            <select id="inputState" name="category" class="form-control" ng-model="data.category" required>
+            <div class="form-group">
+              <label for="category">Category</label>
+              <select id="inputState" name="category" class="form-control" ng-model="data.category" required>
                 <option value="National">National</option>
                 <option value="Technology">Technology</option>
                 <option value="Economy">Economy</option>
                 <option value="Sports">Sports</option>
-            </select>
+              </select>
+            </div>
             <div ng-controller="UploadController" class="my-3">
                 <img style="width:300px;" ng-src="{{ 'data:' + data.image_media_type + ';base64,' + data.image_data }}" />
                 <input type="file" ng-file-select="onFileSelect($files);" ng-model="data"></input>
@@ -37,6 +40,7 @@
                     <div class="errorsLogin" ng-message="required">Abstract is required</div>
                 </div>
             </div>
+            <label for="body">Body</label>
             <summernote height="400" name="body" ng-model="data.body" required></summernote>
             <div ng-messages="editForm.body.$error">
                 <div class="errorsLogin" ng-message="required">The body of the news is required</div>
