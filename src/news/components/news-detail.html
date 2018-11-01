@@ -3,7 +3,7 @@
     <h3>{{data.subtitle}}</h3>
     <p><i>{{data.category}}</i></p>
     <p>Updated by {{data.username}} on {{data.update_date | date: 'fullDate'}}</p>
-    <img ng-src="{{ data.image_data | base64Src: data.image_media_type }}" class="img-fluid">
+    <img ng-show="data.image_data" ng-src="{{ data.image_data | base64Src: data.image_media_type }}" class="img-fluid">
     <p>{{data.abstract}}</p>
     <p ng-bind-html="data.body"></p>
 </article>
