@@ -24,15 +24,17 @@
 </head>
 
 <body ng-app="news.app">
+	<toast></toast>
+	
 	<news-header></news-header>
 	<news-login></news-login>
 
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-md-8 col-lg-9" ng-view ng-cloak>
+			<div class="col-sm-12 col-md-8 col-lg-9" ng-view ng-cloak autoscroll="true">
 			</div>
-			<div class="col-md-4 col-lg-3 d-sm blog-sidebar" style="border: 2px solid #ededed; margin-bottom: 15px; padding:20px">
-				<div class="sidebar-module sidebar-module-inset">
+			<div class="col-md-4 col-lg-3 sidebar-container">
+				<div class="sidebar-module">
 					<a class="twitter-timeline" data-height="1000" href="https://twitter.com/EIT_Digital?ref_src=twsrc%5Etfw">Tweets
 						by EIT_Digital</a>
 					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

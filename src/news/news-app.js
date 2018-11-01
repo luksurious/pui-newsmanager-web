@@ -25,3 +25,9 @@ require('./components/news-login.directive');
 app.run(['$http', function ($http) {
 	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=' + config.apiKey;
 }]);
+
+app.config(['ngToastProvider', function(ngToastProvider) {
+	ngToastProvider.configure({
+		timeout: 2000
+	});
+}]);

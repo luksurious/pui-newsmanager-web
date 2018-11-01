@@ -56,3 +56,17 @@ app.factory('NewsDetailsService', ['$resource', function ($resource) {
 			save: {method: 'post'}
 		});
 }]);
+
+app.factory('NewsUserResolver', function () {
+	const USER_MAP = {
+		// unknown user
+		11: 'Admin',
+		103: 'lukas.bruckner',
+		108: 'v.giardina',
+		120: 'l.litwin'
+	};
+
+	return function (id) {
+		return USER_MAP[id] || 'Unknown';
+	};
+});

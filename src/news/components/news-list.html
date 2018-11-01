@@ -6,7 +6,7 @@
 </header>
 <div class="row">
     <div ng-repeat="item in data | filter: newsFilter as filteredNews track by item.id" class="primary-news col-lg-6" style="margin-bottom:15px; padding:15px;">
-        <a ng-href="/article/{{ item.id }}"><img ng-src="{{ item.thumbnail_image | base64Src: item.thumbnail_media_type }}" width="100%" alt="{{ item.title }}">
+        <a ng-href="/article/{{ item.id }}"><img ng-show="item.thumbnail_image" ng-src="{{ item.thumbnail_image | base64Src: item.thumbnail_media_type }}" width="100%" alt="{{ item.title }}">
         <h1>{{ item.title }}</h1></a>
         <h3>{{ item.subtitle }}</h3>
         <p>{{ item.category }}</p>

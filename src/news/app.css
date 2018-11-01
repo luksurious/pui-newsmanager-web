@@ -6,14 +6,23 @@ body {
 
 
 .ng-toast__message {
-  right: 20px;
-  position: fixed;
+    right: 20px;
+    top: 60px;
+    position: fixed;
 }
 
-.errorsLogin{
+.errorsLogin {
     color: red;
 }
 
-.saveButtonForm{
+.saveButtonForm {
     margin-bottom: 15px;
+}
+
+.sidebar-module {
+    border: 2px solid #ededed;
+    padding: 15px;
+}
+.sidebar-container {
+    padding: 0;
 }
