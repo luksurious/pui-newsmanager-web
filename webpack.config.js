@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ENV = process.env.npm_lifecycle_event;
@@ -59,26 +59,12 @@ config.module = {
         loader: 'babel-loader',
         exclude: /node_modules/
     }, {
-        // CSS LOADER
-        // Reference: https://github.com/webpack/css-loader
-        // Allow loading css through js
-        //
-        // Reference: https://github.com/postcss/postcss-loader
-        // Postprocess your css with PostCSS plugins
-        test: /\.css$/,
-        // Reference: https://github.com/webpack/extract-text-webpack-plugin
-        // Extract css files in production builds
-        //
-        // Reference: https://github.com/webpack/style-loader
-        // Use style-loader in development.
-
-        // loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
-        //   fallbackLoader: 'style-loader',
-        //   loader: [
-        //     {loader: 'css-loader', query: {sourceMap: true}},
-        //     {loader: 'postcss-loader'}
-        //   ],
-        // })
+        test: /\.s?[ac]ss$/,
+        use: [
+            MiniCssExtractPlugin.loader,
+            { loader: 'css-loader', options: { url: false, sourceMap: true } },
+            // { loader: 'sass-loader', options: { sourceMap: true } }
+        ],
     }, {
         // ASSET LOADER
         // Reference: https://github.com/webpack/file-loader
@@ -130,6 +116,9 @@ if (isTest) {
  * List: http://webpack.github.io/docs/list-of-plugins.html
  */
 config.plugins = [
+    new MiniCssExtractPlugin({
+        filename: "style.css"
+    }),
     new webpack.LoaderOptionsPlugin({
         test: /\.scss$/i,
         options: {
