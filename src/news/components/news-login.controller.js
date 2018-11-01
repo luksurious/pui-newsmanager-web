@@ -1,6 +1,6 @@
 import config from './../config';
 
-function NewsLoginController($scope, $rootScope, $http, LoginService) {
+function NewsLoginController($scope, $rootScope, $http, ngToast, LoginService) {
 
     this.$onInit = function () {
         $scope.hasLoginError = false;
@@ -17,8 +17,16 @@ function NewsLoginController($scope, $rootScope, $http, LoginService) {
             $rootScope.loggedInUser = data;
             $http.defaults.headers.common['Authorization'] = data.Authorization + ' apikey=' + data.apikey;
 
-            $('#loginModal').modal('hide');
-            reset();
+            let $loginModal = $('#loginModal');
+            $loginModal.on('hidden.bs.modal', function () {
+                reset();
+
+                $scope.hasLoginError = false;
+                $scope.loginForm.$setPristine();
+                $scope.loginForm.$setUntouched();
+            });
+            $loginModal.modal('hide');
+            ngToast.success('Logged in successfully');
         }).catch(e => {
             console.log(e);
             $scope.hasLoginError = true;
@@ -30,6 +38,7 @@ function NewsLoginController($scope, $rootScope, $http, LoginService) {
         $http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=' + config.apiKey;
         
         $('#logoutModal').modal('hide');
+        ngToast.success('Logged out successfully');
     };
 }
 

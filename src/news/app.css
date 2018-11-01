@@ -6,8 +6,9 @@ body {
 
 
 .ng-toast__message {
-  right: 20px;
-  position: fixed;
+    right: 20px;
+    top: 60px;
+    position: fixed;
 }
 
 .errorsLogin{
