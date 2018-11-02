@@ -2,14 +2,13 @@
 
 ## Requirements
 
-node > 8.*.*
-npm > 5.*.* 
+* node 8+ with npm
 
 ## Quick start
 
-1. run npm install
+1. run `npm install`
 2. run `npm run server`
-3. open localhost:8080
+3. open http://localhost:8080
 
 
 
