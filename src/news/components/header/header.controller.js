@@ -12,4 +12,6 @@ function HeaderController($scope, $location, $rootScope) {
     });
 }
 
+HeaderController.$inject = ['$scope', '$location', '$rootScope'];
+
 export default HeaderController;

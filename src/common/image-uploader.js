@@ -2,15 +2,15 @@ let app = angular.module('imageUploader', []);
 
 /**************************************************************************/
 // Code to load the image files
-app.controller('UploadController', function ($scope, fileReader) {
+app.controller('UploadController', ['$scope', 'fileReader', function ($scope, fileReader) {
 	$scope.imageSrc = "";
 
 	$scope.$on("fileProgress", function (e, progress) {
 		$scope.progress = progress.loaded / progress.total;
 	});
-});
+}]);
 
-app.directive("ngFileSelect", function (fileReader, $timeout) {
+app.directive("ngFileSelect", ['fileReader', '$timeout', function (fileReader, $timeout) {
 	return {
 		scope: {
 			ngModel: '='
@@ -34,9 +34,9 @@ app.directive("ngFileSelect", function (fileReader, $timeout) {
 			});
 		}
 	};
-});
+}]);
 
-app.factory("fileReader", function ($q, $log) {
+app.factory("fileReader", ['$q', function ($q) {
 	let onLoad = function (reader, deferred, scope) {
 		return function () {
 			scope.$apply(function () {
@@ -82,4 +82,4 @@ app.factory("fileReader", function ($q, $log) {
 	return {
 		readAsDataUrl: readAsDataURL
 	};
-});
+}]);

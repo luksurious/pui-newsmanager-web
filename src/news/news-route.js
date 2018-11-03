@@ -1,7 +1,7 @@
-import NewsListTemplate from './components/news-list.html';
-import NewsDetailTemplate from './components/news-detail.html';
-import NewsEditTemplate from './components/news-edit.html';
-import NewsCreateTemplate from './components/news-creation.html';
+import NewsListTemplate from './components/news-list/news-list.html';
+import NewsDetailTemplate from './components/news-detail/news-detail.html';
+import NewsEditTemplate from './components/news-edit/news-edit.html';
+import NewsCreateTemplate from './components/news-creation/news-creation.html';
 
 angular.module('news.app')
     .config(['$locationProvider', '$routeProvider',
@@ -12,31 +12,26 @@ angular.module('news.app')
             $routeProvider.
                 when('/', {
                     controller: 'NewsListController',
-                    controllerAs: 'vm',
                     template: NewsListTemplate
                 }).
                 when('/category/:category', {
                     controller: 'NewsListController',
-                    controllerAs: 'vm',
                     template: NewsListTemplate
                 }).
-                when('/search/:term', {
+                when('/search/:searchTerm', {
                     controller: 'NewsListController',
                     template: NewsListTemplate
                 }).
                 when('/create', {
                     controller: 'NewsCreateController',
-                    controllerAs: 'vm',
                     template: NewsCreateTemplate
                 }).
                 when('/article/:id', {
                     controller: 'NewsDetailController',
-                    controllerAs: 'vm',
                     template: NewsDetailTemplate
                 }).
                 when('/article/:id/edit', {
                     controller: 'NewsEditController',
-                    controllerAs: 'vm',
                     template: NewsEditTemplate
                 }).
                 otherwise('/');

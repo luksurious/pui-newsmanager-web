@@ -1,24 +1,29 @@
 <header ng-if="isLoaded && isSearch" class="row">
-    <h3>Search for '<i>{{ newsFilter }}</i>'</h3>
+    <h3>Search for '<span class="font-italic">{{ newsFilter }}</span>'</h3>
 </header>
 <header ng-if="isLoaded && isCategoryView" class="row">
-    <h3>News in '<i style="text-transform: capitalize;">{{ newsFilter.category }}</i>'</h3>
+    <h3>News in '<span class="text-capitalize font-italic">{{ newsFilter.category }}</span>'</h3>
 </header>
 <div class="row">
-    <div ng-repeat="item in data | filter: newsFilter as filteredNews track by item.id" class="primary-news col-lg-6" style="margin-bottom:15px; padding:15px;">
+    <div ng-repeat="item in data | filter: newsFilter as filteredNews track by item.id" class="primary-news col-lg-6">
         <a ng-href="/article/{{ item.id }}"><img ng-show="item.thumbnail_image" ng-src="{{ item.thumbnail_image | base64Src: item.thumbnail_media_type }}" width="100%" alt="{{ item.title }}">
+        
         <h1>{{ item.title }}</h1></a>
         <h3>{{ item.subtitle }}</h3>
-        <p>{{ item.category }}</p>
+        <span class="badge badge-primary">{{item.category}}</span>
         <p>{{ item.abstract }}</p>
         <a ng-href="/article/{{ item.id }}">Read more...</a>
 
         <button class="btn btn-danger my-2 my-sm-0 mr-sm-2 float-right" ng-click="deleteNews(item)" ng-if="loggedInUser">Delete</button>
         <a class="btn btn-secondary my-2 my-sm-0 mr-sm-2 float-right" ng-if="loggedInUser" ng-href="/article/{{ item.id }}/edit">Edit</a>
+
     </div>
 
-    <div ng-if="filteredNews.length == 0 && isLoaded">
+    <div ng-if="filteredNews.length == 0 && isLoaded && isCategoryView">
         <p>There are no news available for this category</p>
+    </div>
+    <div ng-if="filteredNews.length == 0 && isLoaded && isSearch">
+        <p>Your search returned no results</p>
     </div>
 
     <div ng-if="!isLoaded">Loading...</div>

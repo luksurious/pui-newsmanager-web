@@ -1,5 +1,4 @@
 'use strict';
-import config from './../config';
 
 /* Services */
 let app = angular.module('news.services');
@@ -12,7 +11,7 @@ let app = angular.module('news.services');
 //  apikey: "APIKEYOFTHEUSER",
 //  username: "groman", ...}
 
-app.factory('LoginService', ['$resource', function ($resource) {
+app.factory('LoginService', ['$resource', 'config', function ($resource, config) {
 	return $resource(config.apiEndpoint + '/login', {},
 		{
 			login: {method: 'post'}
@@ -30,7 +29,7 @@ app.factory('LoginService', ['$resource', function ($resource) {
 //  "thumbnail_image":...,
 //  "thumbnail_media_type":...}
 
-app.factory('NewsListService', ['$resource', function ($resource) {
+app.factory('NewsListService', ['$resource', 'config', function ($resource, config) {
 	return $resource(config.apiEndpoint + '/articles', {},
 		{
 			query: {method: 'get', isArray: true}
@@ -48,7 +47,7 @@ app.factory('NewsListService', ['$resource', function ($resource) {
 //  "image_data":...,
 //  "image_media_type":...}
 
-app.factory('NewsDetailsService', ['$resource', function ($resource) {
+app.factory('NewsDetailsService', ['$resource', 'config', function ($resource, config) {
 	return $resource(config.apiEndpoint + '/article/:id', { id: '@_id' },
 		{
 			get: {method: 'get'},

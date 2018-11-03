@@ -1,6 +1,4 @@
-import config from './../config';
-
-function NewsLoginController($scope, $rootScope, $http, ngToast, LoginService) {
+function NewsLoginController($scope, $rootScope, $http, ngToast, LoginService, config) {
 
     this.$onInit = function () {
         $scope.hasLoginError = false;
@@ -41,5 +39,7 @@ function NewsLoginController($scope, $rootScope, $http, ngToast, LoginService) {
         ngToast.success('Logged out successfully');
     };
 }
+
+NewsLoginController.$inject = ['$scope', '$rootScope', '$http', 'ngToast', 'LoginService', 'config'];
 
 export default NewsLoginController;

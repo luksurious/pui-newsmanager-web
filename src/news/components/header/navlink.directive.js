@@ -7,11 +7,11 @@ angular.module('news.app')
             scope: {
                 route: '='
             },
-            controller: function ($scope, $location) {
+            controller: ['$scope', '$location', function ($scope, $location) {
                 $scope.isActive = function () {
                     return $location.path() == $scope.route;
                 };
-            },
+            }],
             template: template,
             link: function (scope, element, attrs) {
                 function adjustActiveClass(isActive) {
@@ -24,7 +24,7 @@ angular.module('news.app')
 
                 adjustActiveClass(scope.isActive());
 
-                scope.$watch('isActive()', function (newValue, oldValue) {
+                scope.$watch('isActive()', function (newValue) {
                     adjustActiveClass(newValue);
                 });
             }

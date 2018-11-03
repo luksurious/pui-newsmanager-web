@@ -1,11 +1,11 @@
 <article ng-if="isLoaded">
     <h1>{{data.title}}</h1>
     <h3>{{data.subtitle}}</h3>
-    <p><i>{{data.category}}</i></p>
     <img ng-show="data.image_data && data.image_data != 'null'" ng-src="{{ data.image_data | base64Src: data.image_media_type }}" class="img-fluid">
-    <p>{{data.abstract}}</p>
+    <div><span class="badge badge-primary">{{data.category}}</span></div>
+    <p class="news-detail__abstract">{{data.abstract}}</p>
     <p ng-bind-html="data.body"></p>
-    <hr />
-    <p>Updated by {{data.username}} on {{data.update_date | date: 'fullDate'}}</p>
+    <hr>
+    <p class="news-detail__author">Updated by {{data.username}} on {{data.update_date | date: 'fullDate'}}</p>
 </article>
 <div ng-if="!isLoaded">Loading...</div>

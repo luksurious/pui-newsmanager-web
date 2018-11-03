@@ -21,7 +21,7 @@
             </select>
         </div>
         <div ng-controller="UploadController" class="my-3">
-            <img style="width: 300px;" ng-show="data.image_data && data.image_data != 'null'" ng-src="{{ data.image_data | base64Src: data.image_media_type }}" />
+            <img class="news-form__thumbnail" ng-show="data.image_data && data.image_data != 'null'" ng-src="{{ data.image_data | base64Src: data.image_media_type }}" />
             <input type="file" ng-file-select="onFileSelect($files);" ng-model="data">
         </div>
         <div class="form-group">

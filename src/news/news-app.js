@@ -1,33 +1,19 @@
-import './services/services';
-import './filters/image-base64-formatter';
-import config from './config';
-import summernote from '../../node_modules/angular-summernote/src/angular-summernote';
-import '../../node_modules/ng-toast/dist/ngToast.min.css';
-import '../../node_modules/angular-sanitize/angular-sanitize.min.js';
-import '../../node_modules/ng-toast/dist/ngToast.min.js';
+import '../common/common-libraries';
+
+import './config';
+import './services/news-services';
+
 import './app.css';
 
-let app = angular.module("news.app", ["ngRoute", "ngResource", "ngSanitize", "ngMessages", "news.services", 'imageBase64Formatter', 'summernote', 'ngToast']);
+angular.module('news.app', ['common-libraries', 'news.config', 'news.services'])
+	.run(['$http', 'config', function ($http, config) {
+		$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=' + config.apiKey;
+	}]);
 
 require('./news-route');
-require('./header/header.directive');
-require('./components/news-list.controller');
-require('./components/news-detail.controller');
-require('./components/news-edit.controller');
-require('./components/news-creation.controller');
-require('./components/news-login.directive');
-
-// TODO: Replace XXXXXXXX with the APIKEY your group anonymous apikey
-// When the user is logged in, the apikey sent to the server must be updated to the
-// apikey received from the server and it must be done in a controller
-// $http.defaults.headers.common['Authorization'] = loginres.Authorization + ' apikey=' + loginres.apikey;
-
-app.run(['$http', function ($http) {
-	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=' + config.apiKey;
-}]);
-
-app.config(['ngToastProvider', function(ngToastProvider) {
-	ngToastProvider.configure({
-		timeout: 2000
-	});
-}]);
+require('./components/header/header.directive');
+require('./components/news-list/news-list.controller');
+require('./components/news-detail/news-detail.controller');
+require('./components/news-edit/news-edit.controller');
+require('./components/news-creation/news-creation.controller');
+require('./components/news-login/news-login.directive');
