@@ -6,14 +6,21 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-
-            <form class="form-inline ml-auto mr-sm-2" ng-submit="searchSubmit()">
+            <ul class="navbar-nav d-sm-block d-md-none" id="navCategoryFilterMobile">
+                <li news-navlink class="nav-item" route="'/'">All news</li>
+                <li news-navlink class="nav-item" route="'/category/national'">National</li>
+                <li news-navlink class="nav-item" route="'/category/economy'">Economy</li>
+                <li news-navlink class="nav-item" route="'/category/sports'">Sports</li>
+                <li news-navlink class="nav-item" route="'/category/technology'">Technology</li>
+                <li class="nav-item"><a class="btn btn-success my-2 my-md-0 mr-md-2" ng-if="loggedInUser" href="/create">Create news</a></li>
+            </ul>
+            <form class="form-inline ml-auto mr-md-2" ng-submit="searchSubmit()">
                 <div class="input-group">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="newsSearch">
                     <div class="input-group-append"><button type="submit" class="btn btn-sm"><i class="fas fa-search"></i></button></div>
                 </div>
             </form>
-            <button class="btn btn-outline-light my-2 my-sm-0 mr-sm-2" id="login-button" data-toggle="modal"
+            <button class="btn btn-outline-light my-2 my-md-0 mr-md-2" id="login-button" data-toggle="modal"
                 data-target="#loginModal" ng-if="!loggedInUser">Login</button>
             <div class="btn-group" role="group" ng-if="loggedInUser">
                 <button id="btnGroupLogout" class="btn btn-outline-light dropdown-toggle my-2 my-sm-0 mr-sm-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ loggedInUser.username }}</button>
@@ -25,18 +32,14 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-expand-md navbar-default navbar-fixed-top navbar-light">
+<nav class="navbar navbar-expand-md navbar-default navbar-fixed-top navbar-light d-none d-md-block">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCategoryFilter"
-            aria-controls="navCategoryFilter" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <ul class="navbar-nav navbar-collapse collapse" id="navCategoryFilter">
-            <li news-navlink class="nav-item" route="'/'">All news</news-navlink>
-            <li news-navlink class="nav-item" route="'/category/national'">National</news-navlink>
-            <li news-navlink class="nav-item" route="'/category/economy'">Economy</news-navlink>
-            <li news-navlink class="nav-item" route="'/category/sports'">Sports</news-navlink>
-            <li news-navlink class="nav-item" route="'/category/technology'">Technology</news-navlink>
+            <li news-navlink class="nav-item" route="'/'">All news</li>
+            <li news-navlink class="nav-item" route="'/category/national'">National</li>
+            <li news-navlink class="nav-item" route="'/category/economy'">Economy</li>
+            <li news-navlink class="nav-item" route="'/category/sports'">Sports</li>
+            <li news-navlink class="nav-item" route="'/category/technology'">Technology</li>
         </ul>
         <a class="btn btn-success my-2 my-sm-0 mr-sm-2" ng-if="loggedInUser" href="/create">Create news</a>
     </div>
