@@ -14,4 +14,5 @@ function HeaderController($scope, $location, $rootScope) {
 
 HeaderController.$inject = ['$scope', '$location', '$rootScope'];
 
-export default HeaderController;
+angular.module('news.app')
+    .controller('HeaderController', HeaderController);

@@ -1,7 +1,7 @@
-import NewsListTemplate from './pages/news-list/news-list.html';
-import NewsDetailTemplate from './pages/news-detail/news-detail.html';
-import NewsEditTemplate from './pages/news-edit/news-edit.html';
-import NewsCreateTemplate from './pages/news-creation/news-creation.html';
+// import NewsListTemplate from './pages/news-list/news-list.html';
+// import NewsDetailTemplate from './pages/news-detail/news-detail.html';
+// import NewsEditTemplate from './pages/news-edit/news-edit.html';
+// import NewsCreateTemplate from './pages/news-creation/news-creation.html';
 
 angular.module('news.app')
     .config(['$locationProvider', '$routeProvider',
@@ -12,27 +12,27 @@ angular.module('news.app')
             $routeProvider.
                 when('/', {
                     controller: 'NewsListController',
-                    template: NewsListTemplate
+                    templateUrl: 'src/news/pages/news-list/news-list.html'
                 }).
                 when('/category/:category', {
                     controller: 'NewsListController',
-                    template: NewsListTemplate
+                    templateUrl: 'src/news/pages/news-list/news-list.html'
                 }).
                 when('/search/:searchTerm', {
                     controller: 'NewsListController',
-                    template: NewsListTemplate
+                    templateUrl: 'src/news/pages/news-list/news-list.html'
                 }).
                 when('/create', {
                     controller: 'NewsCreateController',
-                    template: NewsCreateTemplate
+                    templateUrl: 'src/news/pages/news-creation/news-creation.html'
                 }).
                 when('/article/:id', {
                     controller: 'NewsDetailController',
-                    template: NewsDetailTemplate
+                    templateUrl: 'src/news/pages/news-detail/news-detail.html'
                 }).
                 when('/article/:id/edit', {
                     controller: 'NewsEditController',
-                    template: NewsEditTemplate
+                    templateUrl: 'src/news/pages/news-edit/news-edit.html'
                 }).
                 otherwise('/');
         }

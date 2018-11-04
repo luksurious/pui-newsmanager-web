@@ -1,11 +1,11 @@
-import template from './header.html';
-import HeaderController from './header.controller';
-import './navlink.directive';
+// import template from './header.html';
+// import HeaderController from './header.controller';
+// import './navlink.directive';
 
 angular.module('news.app')
     .directive('newsHeader', function () {
         return {
-            controller: HeaderController,
-            template: template
+            controller: 'HeaderController',
+            templateUrl: 'src/news/components/header/header.html'
         };
     });

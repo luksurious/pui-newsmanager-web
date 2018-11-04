@@ -1,7 +1,5 @@
-'use strict';
-
 /* Services */
-let app = angular.module('news.services');
+let newsServices = angular.module('news.services');
 
 // Post login information and returns the apikey of the user sent when the login succedded
 // The format of the input must be:
@@ -11,7 +9,7 @@ let app = angular.module('news.services');
 //  apikey: "APIKEYOFTHEUSER",
 //  username: "groman", ...}
 
-app.factory('LoginService', ['$resource', 'config', function ($resource, config) {
+newsServices.factory('LoginService', ['$resource', 'config', function ($resource, config) {
 	return $resource(config.apiEndpoint + '/login', {},
 		{
 			login: {method: 'post'}
@@ -29,7 +27,7 @@ app.factory('LoginService', ['$resource', 'config', function ($resource, config)
 //  "thumbnail_image":...,
 //  "thumbnail_media_type":...}
 
-app.factory('NewsListService', ['$resource', 'config', function ($resource, config) {
+newsServices.factory('NewsListService', ['$resource', 'config', function ($resource, config) {
 	return $resource(config.apiEndpoint + '/articles', {},
 		{
 			query: {method: 'get', isArray: true}
@@ -47,7 +45,7 @@ app.factory('NewsListService', ['$resource', 'config', function ($resource, conf
 //  "image_data":...,
 //  "image_media_type":...}
 
-app.factory('NewsDetailsService', ['$resource', 'config', function ($resource, config) {
+newsServices.factory('NewsDetailsService', ['$resource', 'config', function ($resource, config) {
 	return $resource(config.apiEndpoint + '/article/:id', { id: '@_id' },
 		{
 			get: {method: 'get'},
@@ -67,7 +65,7 @@ app.factory('NewsDetailsService', ['$resource', 'config', function ($resource, c
 		});
 }]);
 
-app.factory('NewsUserResolver', function () {
+newsServices.factory('NewsUserResolver', function () {
 	const USER_MAP = {
 		// unknown user
 		11: 'Admin',

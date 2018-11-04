@@ -1,9 +1,9 @@
-import 'angular-summernote/src/angular-summernote';
-import 'ng-toast/dist/ngToast.min.css';
-import 'ng-toast';
+// import 'angular-summernote/src/angular-summernote';
+// import 'ng-toast/dist/ngToast.min.css';
+// import 'ng-toast';
 
-import './image-uploader';
-import './image-base64-formatter';
+// import './image-uploader';
+// import './image-base64-formatter';
 
 angular.module('common-libraries', [
     'ngRoute',

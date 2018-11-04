@@ -1,4 +1,4 @@
-import template from './navlink.html';
+// import template from './navlink.html';
 
 angular.module('news.app')
     .directive('newsNavlink', ['$location', function ($location) {
@@ -15,7 +15,7 @@ angular.module('news.app')
             scope: {
                 route: '='
             },
-            template: template,
+            templateUrl: 'src/news/components/header/navlink.html',
             link: function ($scope, element, attrs) {
                 $scope.isActive = function () {
                     return $location.path() == $scope.route;

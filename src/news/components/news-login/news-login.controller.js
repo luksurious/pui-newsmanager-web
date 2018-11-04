@@ -42,4 +42,5 @@ function NewsLoginController($scope, $rootScope, $http, ngToast, LoginService, c
 
 NewsLoginController.$inject = ['$scope', '$rootScope', '$http', 'ngToast', 'LoginService', 'config'];
 
-export default NewsLoginController;
+angular.module('news.app')
+    .controller('NewsLoginController', NewsLoginController);
