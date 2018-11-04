@@ -13,7 +13,7 @@ angular.module('news.app')
                 NewsDetailsService.save($scope.data).$promise.then(
                     function (result) {
                         ngToast.create('Published !');
-                        window.location.href = 'article/' + result.id;
+                        $location.path('/article/' + result.id);
                     }
                 ).catch(
                     function (e) {

@@ -1,32 +1,31 @@
 import template from './navlink.html';
 
 angular.module('news.app')
-    .directive('newsNavlink', function () {
+    .directive('newsNavlink', ['$location', function ($location) {
+        function adjustActiveClass(isActive, attrs) {
+            if (isActive) {
+                attrs.$addClass('active');
+            } else {
+                attrs.$removeClass('active');
+            }
+        }
+
         return {
             transclude: true,
             scope: {
                 route: '='
             },
-            controller: ['$scope', '$location', function ($scope, $location) {
+            template: template,
+            link: function ($scope, element, attrs) {
                 $scope.isActive = function () {
                     return $location.path() == $scope.route;
                 };
-            }],
-            template: template,
-            link: function (scope, element, attrs) {
-                function adjustActiveClass(isActive) {
-                    if (isActive) {
-                        attrs.$addClass('active');
-                    } else {
-                        attrs.$removeClass('active');
-                    }
-                }
 
-                adjustActiveClass(scope.isActive());
+                adjustActiveClass($scope.isActive(), attrs);
 
-                scope.$watch('isActive()', function (newValue) {
-                    adjustActiveClass(newValue);
+                $scope.$watch('isActive()', function (newValue) {
+                    adjustActiveClass(newValue, attrs);
                 });
             }
         };
-    });
+    }]);

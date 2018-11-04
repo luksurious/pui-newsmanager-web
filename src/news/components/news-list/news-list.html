@@ -12,7 +12,7 @@
         </a>
         <h3>{{ item.subtitle }}</h3>
         <span class="badge badge-primary">{{item.category}}</span>
-        <p>{{ item.abstract }}</p>
+        <p class="news-list__abstract">{{ item.abstract }}</p>
         <a ng-href="/article/{{ item.id }}">Read more...</a>
 
         <button class="btn btn-danger my-2 my-sm-0 mr-sm-2 float-right" ng-click="deleteNews(item)" ng-if="loggedInUser">Delete</button>
