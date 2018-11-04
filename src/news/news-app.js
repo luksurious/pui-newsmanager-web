@@ -12,8 +12,9 @@ angular.module('news.app', ['common-libraries', 'news.config', 'news.services'])
 
 require('./news-route');
 require('./components/header/header.directive');
-require('./components/news-list/news-list.controller');
-require('./components/news-detail/news-detail.controller');
-require('./components/news-edit/news-edit.controller');
-require('./components/news-creation/news-creation.controller');
 require('./components/news-login/news-login.directive');
+
+require('./pages/news-list/news-list.controller');
+require('./pages/news-detail/news-detail.controller');
+require('./pages/news-edit/news-edit.controller');
+require('./pages/news-creation/news-creation.controller');
