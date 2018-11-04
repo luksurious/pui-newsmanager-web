@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/">The News</a>
+        <a class="navbar-brand" href="#!/">The News</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
                 <li news-navlink class="nav-item" route="'/category/economy'">Economy</li>
                 <li news-navlink class="nav-item" route="'/category/sports'">Sports</li>
                 <li news-navlink class="nav-item" route="'/category/technology'">Technology</li>
-                <li class="nav-item"><a class="btn btn-success my-2 my-md-0 mr-md-2" ng-if="loggedInUser" href="/create">Create news</a></li>
+                <li class="nav-item"><a class="btn btn-success my-2 my-md-0 mr-md-2" ng-if="loggedInUser" href="#!/create">Create news</a></li>
             </ul>
             <form class="form-inline ml-auto mr-md-2" ng-submit="searchSubmit()">
                 <div class="input-group">
@@ -41,6 +41,6 @@
             <li news-navlink class="nav-item" route="'/category/sports'">Sports</li>
             <li news-navlink class="nav-item" route="'/category/technology'">Technology</li>
         </ul>
-        <a class="btn btn-success my-2 my-sm-0 mr-sm-2" ng-if="loggedInUser" href="/create">Create news</a>
+        <a class="btn btn-success my-2 my-sm-0 mr-sm-2" ng-if="loggedInUser" href="#!/create">Create news</a>
     </div>
 </nav>

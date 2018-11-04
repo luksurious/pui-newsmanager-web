@@ -6,17 +6,17 @@
 </header>
 <div class="row">
     <div ng-repeat="item in data | filter: newsFilter as filteredNews track by item.id" class="primary-news col-lg-6">
-        <a ng-href="/article/{{ item.id }}">
+        <a ng-href="#!/article/{{ item.id }}">
             <img ng-show="item.thumbnail_image" ng-src="{{ item.thumbnail_image | base64Src: item.thumbnail_media_type }}" width="100%" alt="{{ item.title }}">
             <h1>{{ item.title }}</h1>
         </a>
         <h3>{{ item.subtitle }}</h3>
         <span class="badge badge-primary">{{item.category}}</span>
         <p>{{ item.abstract }}</p>
-        <a ng-href="/article/{{ item.id }}">Read more...</a>
+        <a ng-href="#!/article/{{ item.id }}">Read more...</a>
 
         <button class="btn btn-danger my-2 my-sm-0 mr-sm-2 float-right" ng-click="deleteNews(item)" ng-if="loggedInUser">Delete</button>
-        <a class="btn btn-secondary my-2 my-sm-0 mr-sm-2 float-right" ng-if="loggedInUser" ng-href="/article/{{ item.id }}/edit">Edit</a>
+        <a class="btn btn-secondary my-2 my-sm-0 mr-sm-2 float-right" ng-if="loggedInUser" ng-href="#!/article/{{ item.id }}/edit">Edit</a>
 
     </div>
 

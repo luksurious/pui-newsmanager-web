@@ -7,7 +7,7 @@ angular.module('news.app')
     .config(['$locationProvider', '$routeProvider',
         function config($locationProvider, $routeProvider) {
             $locationProvider.hashPrefix('!');
-            $locationProvider.html5Mode(true);
+            $locationProvider.html5Mode(false);
 
             $routeProvider.
                 when('/', {
