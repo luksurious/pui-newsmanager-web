@@ -33,9 +33,13 @@ footer {
     margin-top: 20px;
 }
 
+.news-list__abstract {
+    white-space: pre-line;
+}
 .news-detail__abstract {
     font-style: italic;
     font-size: 1.2rem;
+    white-space: pre-line;
 }
 .news-detail__author {
     font-size: 0.9rem;

@@ -24,6 +24,7 @@ angular.module('news.app')
                 NewsDetailsService.save($scope.data).$promise.then(
                     function () {
                         ngToast.create('Saved !');
+                        $location.path('/article/' + $scope.newsId);
                     }
                 ).catch(
                     function (e) {

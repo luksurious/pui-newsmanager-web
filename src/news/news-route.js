@@ -1,7 +1,7 @@
-import NewsListTemplate from './components/news-list/news-list.html';
-import NewsDetailTemplate from './components/news-detail/news-detail.html';
-import NewsEditTemplate from './components/news-edit/news-edit.html';
-import NewsCreateTemplate from './components/news-creation/news-creation.html';
+import NewsListTemplate from './pages/news-list/news-list.html';
+import NewsDetailTemplate from './pages/news-detail/news-detail.html';
+import NewsEditTemplate from './pages/news-edit/news-edit.html';
+import NewsCreateTemplate from './pages/news-creation/news-creation.html';
 
 angular.module('news.app')
     .config(['$locationProvider', '$routeProvider',

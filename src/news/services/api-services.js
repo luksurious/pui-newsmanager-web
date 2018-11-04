@@ -52,7 +52,18 @@ app.factory('NewsDetailsService', ['$resource', 'config', function ($resource, c
 		{
 			get: {method: 'get'},
 			delete: {method: 'delete'},
-			save: {method: 'post'}
+			save: {
+				method: 'post',
+				interceptor: {
+					request: function (config) {
+						// escape single quotes for the backend
+						['abstract', 'body', 'title', 'subtitle'].forEach(key => {
+							config.data[key] = config.data[key].replace(/'/g, "\\'");
+						});
+						return config;
+					}
+				}
+			}
 		});
 }]);
 
