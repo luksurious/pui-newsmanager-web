@@ -8,6 +8,6 @@
     <hr>
     <p class="news-detail__author">Updated by {{data.username}} on {{data.update_date | date: 'medium'}}</p>
     <a class="btn btn-secondary my-2 my-sm-0 mr-sm-2 float-right" ng-if="loggedInUser" ng-href="/article/{{ data.id }}/edit">Edit</a>
-    <a class="btn btn-sm btn-secondary" href="/">&lt; back</a>
+    <a class="btn btn-sm btn-secondary" href="#!/">&lt; back</a>
 </article>
 <div ng-if="!isLoaded">Loading...</div>
