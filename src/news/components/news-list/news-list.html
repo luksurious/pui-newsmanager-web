@@ -1,14 +1,15 @@
 <header ng-if="isLoaded && isSearch" class="row">
-    <h3>Search for '<span class="font-italic">{{ newsFilter }}</span>'</h3>
+    <h3>Search for '<span class="font-italic">{{ isSearch }}</span>'</h3>
 </header>
 <header ng-if="isLoaded && isCategoryView" class="row">
     <h3>News in '<span class="text-capitalize font-italic">{{ newsFilter.category }}</span>'</h3>
 </header>
 <div class="row">
     <div ng-repeat="item in data | filter: newsFilter as filteredNews track by item.id" class="primary-news col-lg-6">
-        <a ng-href="/article/{{ item.id }}"><img ng-show="item.thumbnail_image" ng-src="{{ item.thumbnail_image | base64Src: item.thumbnail_media_type }}" width="100%" alt="{{ item.title }}">
-        
-        <h1>{{ item.title }}</h1></a>
+        <a ng-href="/article/{{ item.id }}">
+            <img ng-show="item.thumbnail_image" ng-src="{{ item.thumbnail_image | base64Src: item.thumbnail_media_type }}" width="100%" alt="{{ item.title }}">
+            <h1>{{ item.title }}</h1>
+        </a>
         <h3>{{ item.subtitle }}</h3>
         <span class="badge badge-primary">{{item.category}}</span>
         <p>{{ item.abstract }}</p>

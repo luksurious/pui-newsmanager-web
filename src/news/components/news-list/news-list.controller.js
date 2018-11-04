@@ -11,10 +11,11 @@ angular.module('news.app')
             if ($routeParams.category) {
                 $scope.newsFilter.category = $routeParams.category;
                 $scope.isCategoryView = true;
-            }
-            if ($routeParams.searchTerm) {
-                $scope.newsFilter = $routeParams.searchTerm;
-                $scope.isSearch = true;
+            } else if ($routeParams.searchTerm) {
+                $scope.newsFilter = function (news) {
+                    return (news.title + news.subtitle + news.body + news.abstract + news.category).indexOf($routeParams.searchTerm) > -1;
+                };
+                $scope.isSearch = $routeParams.searchTerm;
             }
 
             NewsListService.query().$promise.then(data => {
@@ -29,11 +30,11 @@ angular.module('news.app')
                 if (!confirm(`Are you sure you want to delete the news item ${news.title}?`)) {
                     return;
                 }
-                NewsDetailsService.delete({id: news.id}).$promise.then(function () {
+                NewsDetailsService.delete({id: news.id}).$promise.then(() => {
                     ngToast.success('Successfully deleted news ' + news.title);
                     $route.reload();
                 })
-                .catch(function (err) {
+                .catch((err) => {
                     ngToast.danger('There was an error deleting the news item');
                     console.error(err);
                 });
