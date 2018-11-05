@@ -1,3 +1,6 @@
+/**
+ * INFO: this module just combines all external dependencies
+ */
 // import 'angular-summernote/src/angular-summernote';
 // import 'ng-toast/dist/ngToast.min.css';
 // import 'ng-toast';

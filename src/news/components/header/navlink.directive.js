@@ -1,5 +1,8 @@
 // import template from './navlink.html';
 
+/**
+ * INFO: this directive makes sure that the active state of the links are updated when the page is changed
+ */
 angular.module('news.app')
     .directive('newsNavlink', ['$location', function ($location) {
         function adjustActiveClass(isActive, attrs) {
@@ -23,6 +26,7 @@ angular.module('news.app')
 
                 adjustActiveClass($scope.isActive(), attrs);
 
+                // maybe would be better to do it on $routeChangeSuccess
                 $scope.$watch('isActive()', function (newValue) {
                     adjustActiveClass(newValue, attrs);
                 });

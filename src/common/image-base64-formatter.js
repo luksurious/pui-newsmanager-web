@@ -1,3 +1,6 @@
+/**
+ * INFO: a small filter to create the correct structure for base64 images
+ */
 angular.module('imageBase64Formatter', [])
     .filter('base64Src', function () {
         return function (base64Data, mediaType) {

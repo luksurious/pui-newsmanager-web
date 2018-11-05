@@ -1,3 +1,6 @@
+/**
+ * INFO: imported templates will be simply strings of HTML in the end
+ */
 // import NewsListTemplate from './pages/news-list/news-list.html';
 // import NewsDetailTemplate from './pages/news-detail/news-detail.html';
 // import NewsEditTemplate from './pages/news-edit/news-edit.html';

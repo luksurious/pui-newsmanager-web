@@ -10,6 +10,9 @@ let newsServices = angular.module('news.services');
 //  username: "groman", ...}
 
 newsServices.factory('LoginService', ['$resource', 'config', function ($resource, config) {
+	/**
+	 * INFO: the endpoint is also read from the config file
+	 */
 	return $resource(config.apiEndpoint + '/login', {},
 		{
 			login: {method: 'post'}
@@ -52,6 +55,9 @@ newsServices.factory('NewsDetailsService', ['$resource', 'config', function ($re
 			delete: {method: 'delete'},
 			save: {
 				method: 'post',
+				/**
+				 * INFO: The server refused to save text with single quotes, but escaping them worked fine
+				 */
 				interceptor: {
 					request: function (config) {
 						// escape single quotes for the backend
@@ -65,6 +71,10 @@ newsServices.factory('NewsDetailsService', ['$resource', 'config', function ($re
 		});
 }]);
 
+/**
+ * INFO: Since we don't have the information about the username, we created a hardcoded map between IDs we know and the usernames
+ * We thought in the end this would be connected to the API as well
+ */
 newsServices.factory('NewsUserResolver', function () {
 	const USER_MAP = {
 		// unknown user

@@ -12,7 +12,7 @@ angular.module('news.app')
             $scope.create = function () {
                 NewsDetailsService.save($scope.data).$promise.then(
                     function (result) {
-                        ngToast.create('Published !');
+                        ngToast.create('Published!');
                         $location.path('/article/' + result.id);
                     }
                 ).catch(
@@ -23,6 +23,9 @@ angular.module('news.app')
                 )
             };
 
+            /**
+             * INFO: This helper method fixes the connection between summernote and the form validation
+             */
             $scope.onBodyChanged = function () {
                 $scope.createForm.body.$setTouched();
             };
