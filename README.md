@@ -53,27 +53,29 @@ Because of security restrictions, the `index.html` lives in the root directory, 
 
 If `npm` is not available, the necessary `node_modules` are provided out-of-the-box.
 
-## Code details and gotchas
+# Implementation details
 
-### Edit/create page
+## Edit/create page
 
 The access to this pages is allowed only if the user is logged in, even if the URL is directly entered.
 
-#### Usage of Summernote
+### Usage of Summernote
 
 We imported Summernote as an external library. It's a WYSIWYG plugin that allow us to create a HTML code
 directly from the UI.
 In order to support proper validation for it, a dummy text field is added which properly links to the AngularJS form validation.
 
-### Implementation of toast
+## Implementation of toast
 
 We also imported ngToast. It's a library that allow to display notifications to the user. Like that
 we are able inform users while update or creating a new post: if the modification was taking into
 account or if something went wrong (no internet connection for instance).
 
-### Images with base64 data
+## Images with base64 data
 A custom directive is created in `src/common/image-base64-formatter.js`, so that the same code does not need to be repeated.
 
-### Misc
+## Misc
 - Sending single quotes didn't work, so the submission service automatically escapes them.
 - Since we did not have the usernames directly provided, we created a dummy service which resolves user ids to usernames
+- Loading of the data from the backend is asynchronous, so we show a short "Loading" message in the beginning, and only render the real template once the data is loaded
+- More comments are provided in the code, and are noted with "INFO:"
