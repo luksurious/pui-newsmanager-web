@@ -53,6 +53,9 @@ Because of security restrictions, the `index.html` lives in the root directory, 
 
 If `npm` is not available, the necessary `node_modules` are provided out-of-the-box.
 
+### Quick start
+1. Simply open the file `index.html` in Firefox
+
 # Implementation details
 
 ## Edit/create page
