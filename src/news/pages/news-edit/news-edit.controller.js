@@ -34,6 +34,9 @@ angular.module('news.app')
                 )
             };
 
+            /**
+             * INFO: This helper method fixes the connection between summernote and the form validation
+             */
             $scope.onBodyChanged = function () {
                 $scope.editForm.body.$setTouched();
             };

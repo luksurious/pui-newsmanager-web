@@ -7,7 +7,7 @@ for 'Programming of User Interfaces'
 - `src/news` contains all the news specific AngularJS code
     - `components` contains directives
     - `pages` contains the templates and controllers for the different pages
-    - `services` contains the services
+    - `services` contains the services, and the API services which were provided
 - `src/common` contains shared code, not directly related to the news application, abstracting most external dependencies
 - `public` contains the `index.html` which contains the main layout
 
@@ -43,6 +43,8 @@ This starts a webpack-dev-server with hot-reloading if any changes are made. Not
 1. Run `npm run build`
 2. The compiled files are found in the `/dist` folder. It can then be served through any web server.
 
+### Misc
+- Since importing hoists the code to the beginning of the files, only independent files are imported. Javascript sources which depend on the current code are instead `require`d so they are loaded at the exact same spot in the parent file.
 
 ## Serverless version
 This version can be deployed without any server. However, without a server, using Html5 mode is more tricky, so it is disabled (because a fixed base-href needs to be provided).
@@ -53,17 +55,25 @@ If `npm` is not available, the necessary `node_modules` are provided out-of-the-
 
 ## Code details and gotchas
 
-## Edit/create page
+### Edit/create page
 
-The access to this pages is allowed only if the user is logged in.
+The access to this pages is allowed only if the user is logged in, even if the URL is directly entered.
 
-### Usage of Summernote
+#### Usage of Summernote
 
 We imported Summernote as an external library. It's a WYSIWYG plugin that allow us to create a HTML code
 directly from the UI.
+In order to support proper validation for it, a dummy text field is added which properly links to the AngularJS form validation.
 
 ### Implementation of toast
 
 We also imported ngToast. It's a library that allow to display notifications to the user. Like that
 we are able inform users while update or creating a new post: if the modification was taking into
 account or if something went wrong (no internet connection for instance).
+
+### Images with base64 data
+A custom directive is created in `src/common/image-base64-formatter.js`, so that the same code does not need to be repeated.
+
+### Misc
+- Sending single quotes didn't work, so the submission service automatically escapes them.
+- Since we did not have the usernames directly provided, we created a dummy service which resolves user ids to usernames

@@ -12,8 +12,12 @@ angular.module('news.app')
                 $scope.newsFilter.category = $routeParams.category;
                 $scope.isCategoryView = true;
             } else if ($routeParams.searchTerm) {
+                /**
+                 * INFO: A custom filter function so that we can filter only on all of the text variables together
+                 */
                 $scope.newsFilter = function (news) {
-                    return (news.title + news.subtitle + news.body + news.abstract + news.category).indexOf($routeParams.searchTerm) > -1;
+                    return (news.title + news.subtitle + news.body + news.abstract + news.category)
+                        .indexOf($routeParams.searchTerm) > -1;
                 };
                 $scope.isSearch = $routeParams.searchTerm;
             }

@@ -1,3 +1,6 @@
+/**
+ * INFO: extracted the code for the image uploader into a separate module
+ */  
 let app = angular.module('imageUploader', []);
 
 /**************************************************************************/
